@@ -4,7 +4,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <a class="navbar-brand" href="#">Moodle</a>
+          <a class="navbar-brand" href="{{route('/')}}"><img height="30" src="{{ url('..\images\school-svgrepo-com.svg') }}" alt="Logo"></a>
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
               <a class="nav-link" href="#">{{ __('Kezdőlap') }}<span class="sr-only">(current)</span></a>
@@ -27,15 +27,12 @@
                     </li>    
                 @endguest
                 @auth
-                  <form method="POST" action="{{ route('logout') }}">
+                <li class="nav-item">
+                  <form method="POST" action="{{route('logout')}}">
                     @csrf
-
-                    <x-dropdown-link :href="route('logout')"
-                            onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        {{ __('Log Out') }}
-                    </x-dropdown-link>
-                  </form> 
+                    <button type="submit" class="btn btn-dark">{{ __('Kijelentkezés') }}</button>
+                  </form>
+                </li>
                 @endauth
                  
             </ul>
