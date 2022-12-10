@@ -9,9 +9,11 @@
             <li class="nav-item active">
               <a class="nav-link" href="#">{{ __('Kezdőlap') }}<span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
+            @can('open_admin_page')
+              <li class="nav-item">
+                <a class="nav-link" href="#">{{ __('Beállítások') }}</a>
+              </li>
+            @endcan
             <li class="nav-item">
               <a class="nav-link" href="#">link</a>
             </li>
