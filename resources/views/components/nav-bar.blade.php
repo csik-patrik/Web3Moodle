@@ -28,6 +28,9 @@
                 @endguest
                 @auth
                 <li class="nav-item">
+                  <a class="nav-link" href="#">{{Auth::user()->name}}</a>
+                <li>
+                <li class="nav-item">
                   <form method="POST" action="{{route('logout')}}">
                     @csrf
                     <button type="submit" class="btn btn-dark">{{ __('Kijelentkezés') }}</button>
