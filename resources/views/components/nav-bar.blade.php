@@ -11,7 +11,7 @@
             </li>
             @can('open_admin_page')
               <li class="nav-item">
-                <a class="nav-link" href="#">{{ __('Beállítások') }}</a>
+                <a class="nav-link" href="{{route('admin.index')}}">{{ __('Beállítások') }}</a>
               </li>
             @endcan
             <li class="nav-item">

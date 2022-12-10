@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +30,16 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::group([
+    'prefix' => 'admin',
+    'as' => 'admin.',
+    'middleware' => ['auth', 'is_admin'],
+], function () {
+    // Admin main view.
+    Route::view('/index', 'Admin.index')->name('index');
+
+    // User maintenance route.
+    Route::resource('users', UserController::class);
+
+});
