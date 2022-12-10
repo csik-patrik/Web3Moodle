@@ -18,7 +18,7 @@ class UserIsAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::user()->id === Role::IS_ADMIN){
+        if(Auth::user()->role_id == Role::IS_ADMIN){
             return $next($request);
         }
         abort(403);
