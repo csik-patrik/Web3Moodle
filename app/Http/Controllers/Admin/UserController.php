@@ -8,6 +8,8 @@ use App\Models\User;
 use App\Models\Role;
 use Illuminate\Support\Facades\Hash;
 use App\http\Requests\Admin\UserStoreRequest;
+use App\Http\Requests\Admin\UserUpdateRequest;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -76,9 +78,29 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(UserUpdateRequest $request)
     {
-        //
+        if($request->validated()){
+            $affected = DB::table('users')
+              ->where('id', $request->id)
+              ->update(['name' => $request->name,
+                        'email' => $request->email,
+                        'role_id' => $request->role_id
+                       ]);
+            
+
+
+            //$userForUpdate = User::where('id', $request->id);
+            //$userForUpdate->name = $request->name;
+            //$userForUpdate->email = $request->email;
+            //$userForUpdate->role_id = $request->role_id;
+            //$userForUpdate->save();
+            return redirect()->route('admin.users.index')
+                        ->with('success', __('Felhasználó adatainak frissítése sikeres!'));
+        }
+        return redirect()->route('admin.users.index')
+                        ->with('failed', __('Felhasználó adatainak frissítése sikertelen!'));
+
     }
 
     /**
