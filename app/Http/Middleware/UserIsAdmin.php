@@ -18,6 +18,9 @@ class UserIsAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        Auth::user()->id === Role::IS_ADMIN;
+        if(Auth::user()->id === Role::IS_ADMIN){
+            return $next($request);
+        }
+        abort(403);
     }
 }
