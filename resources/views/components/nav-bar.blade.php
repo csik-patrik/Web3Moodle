@@ -7,11 +7,11 @@
           <a class="navbar-brand" href="{{route('/')}}"><img height="30" src="{{ url('..\images\school-svgrepo-com.svg') }}" alt="Logo"></a>
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-              <a class="nav-link" href="#">{{ __('Kezdőlap') }}<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{{route('/')}}">{{ __('Kezdőlap') }}<span class="sr-only">(current)</span></a>
             </li>
-            @can('open_admin_page')
+            @can('is_admin')
               <li class="nav-item">
-                <a class="nav-link" href="{{route('admin.index')}}">{{ __('Beállítások') }}</a>
+                <a class="nav-link" href="{{route('admin.index')}}">{{ __('Karbantartás') }}</a>
               </li>
             @endcan
             <li class="nav-item">
