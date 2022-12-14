@@ -12,17 +12,17 @@
         </div>
     </div>
     @if ($message = Session::get('success'))
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <strong><p>{{ $message }}</p></strong>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong><p>{{ $message }}</p></strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
             </div>
-        @endif
+        </div>
+    @endif
     <div class="row justify-content-center pb-3">
         <div class="class-lg-6">
             <a class="btn bg-danger text-white" href="{{ route('admin.users.create', app()->getLocale()) }}"> {{__('Felhasználó létrehozása')}}</a>
@@ -65,6 +65,9 @@
                             </td>
                         </tr>
                     @endforeach
+                    <tr>
+                        <td> {{ $users->links()}} </td>
+                    </tr>
                 </tbody>
             </table>
         </div>

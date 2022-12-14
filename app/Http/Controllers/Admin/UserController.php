@@ -20,7 +20,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('id', 'asc')->get();
+        $users = User::orderBy('id', 'asc')->paginate(10);
 
         return view('Admin.Users.index', compact('users'));
     }
@@ -88,13 +88,6 @@ class UserController extends Controller
                         'role_id' => $request->role_id
                        ]);
             
-
-
-            //$userForUpdate = User::where('id', $request->id);
-            //$userForUpdate->name = $request->name;
-            //$userForUpdate->email = $request->email;
-            //$userForUpdate->role_id = $request->role_id;
-            //$userForUpdate->save();
             return redirect()->route('admin.users.index')
                         ->with('success', __('Felhasználó adatainak frissítése sikeres!'));
         }
