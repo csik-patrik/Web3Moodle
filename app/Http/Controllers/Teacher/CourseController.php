@@ -83,6 +83,10 @@ class CourseController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Course::where('id', $id)->delete();
+
+        return redirect()->route('courses.index')
+                        ->with('success', __('Kurzus törlése sikeres!'));
+
     }
 }
