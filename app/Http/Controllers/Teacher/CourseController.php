@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Teacher;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Course;
 
 class CourseController extends Controller
 {
@@ -14,7 +15,9 @@ class CourseController extends Controller
      */
     public function index()
     {
-        //
+        $courses = Course::orderBy('id', 'asc')->paginate(10);
+
+        return view('Teacher.Courses.index', compact('courses'));
     }
 
     /**
