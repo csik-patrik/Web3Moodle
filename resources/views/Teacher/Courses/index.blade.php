@@ -50,7 +50,7 @@
                             <td>{{ $course->code }}</td>
                             <td>{{ $course->name }}</td>
                             <td>{{ $course->category_id }}</td>
-                            <td>{{ $course->owner_id }}</td>
+                            <td>{{ $course->user->name }}</td>
                             <td>{{ $course->created_at }}</td>
                             <td>{{ $course->updated_at }}</td>
                             <td>
