@@ -25,7 +25,7 @@
     @endif
     <div class="row justify-content-center pb-3">
         <div class="class-lg-6">
-            <a class="btn bg-danger text-white" href="{{ route('admin.users.create', app()->getLocale()) }}"> {{__('Felhasználó létrehozása')}}</a>
+            <a class="btn bg-danger text-white" href="{{ route('admin.users.create') }}"> {{__('Felhasználó létrehozása')}}</a>
         </div>
     </div>
     <div class="row justify-content-center">
