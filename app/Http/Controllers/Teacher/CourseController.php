@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Teacher;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Course;
+use App\Models\User;
 
 class CourseController extends Controller
 {
@@ -27,7 +28,9 @@ class CourseController extends Controller
      */
     public function create()
     {
-        return View('Teacher.Courses.create');
+        $owners = User::where('role_id', 2)->get();
+
+        return View('Teacher.Courses.create', compact('owners'));
     }
 
     /**
