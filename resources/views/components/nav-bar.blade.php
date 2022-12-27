@@ -29,6 +29,9 @@
                     </li>    
                 @endguest
                 @auth
+                <li class="nav-item d-flex justify-content-end">
+                  <img class="w-50" src="https://ui-avatars.com/api/?name={{ urlencode(auth()->user()->name) }}&rounded=true&background=eda828&color=ffffff">
+                <li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">{{Auth::user()->name}}</a>
                 <li>
