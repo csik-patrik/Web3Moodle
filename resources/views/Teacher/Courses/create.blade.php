@@ -38,6 +38,18 @@
                 </div>
                 <div class="row p-2">
                     <div class="col-lg-6 col-md-6 col-sm-12">
+                        <h3>{{__('Kategória:')}}</h3>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <select name="category_id" class="form-control">
+                            @foreach ($categories as $category)
+                                <option value="{{$category->id}}">{{$category->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="row p-2">
+                    <div class="col-lg-6 col-md-6 col-sm-12">
                         <h3>{{__('Tulajdonos:')}}</h3>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12">

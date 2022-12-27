@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Teacher\CourseStoreRequest;
 use Illuminate\Http\Request;
 use App\Models\Course;
+use App\Models\CourseCategory;
 use App\Models\User;
 
 class CourseController extends Controller
@@ -31,7 +32,9 @@ class CourseController extends Controller
     {
         $owners = User::where('role_id', 2)->get();
 
-        return View('Teacher.Courses.create', compact('owners'));
+        $categories = CourseCategory::orderBy('name')->get();
+
+        return View('Teacher.Courses.create', compact('owners', 'categories'));
     }
 
     /**

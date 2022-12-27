@@ -26,6 +26,7 @@ class CourseStoreRequest extends FormRequest
         return [
             'name' => ['required'],
             'code' => ['required', 'unique:courses'],
+            'category_id' => ['required'],
             'owner_id' => 'required',
         ];
     }
