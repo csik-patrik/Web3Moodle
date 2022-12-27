@@ -27,7 +27,7 @@ class CourseController extends Controller
      */
     public function create()
     {
-        //
+        return View('Teacher.Courses.create');
     }
 
     /**
