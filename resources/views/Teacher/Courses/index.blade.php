@@ -49,7 +49,7 @@
                             <th>{{ $course->id }}</th>
                             <td>{{ $course->code }}</td>
                             <td>{{ $course->name }}</td>
-                            <td>{{ $course->category_id }}</td>
+                            <td>{{ $course->category->name }}</td>
                             <td>{{ $course->user->name }}</td>
                             <td>{{ $course->created_at }}</td>
                             <td>{{ $course->updated_at }}</td>
