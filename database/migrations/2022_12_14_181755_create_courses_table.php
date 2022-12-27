@@ -18,7 +18,7 @@ return new class () extends Migration {
             $table->string('name');
             $table->unsignedBigInteger('category_id')->nullable();
             $table->unsignedBigInteger('owner_id');
-            //$table->foreign('category_id')->references('category_id')->on('course_categories')->onDelete('set null');
+            $table->foreign('category_id')->references('id')->on('course_categories')->onDelete('set null');
             $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
