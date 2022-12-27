@@ -61,7 +61,7 @@
                                     
                                     <a class="btn btn-warning" href="{{ route('courses.edit', $course) }}">{{__('Módosítás')}}</a>
                     
-                                    <button type="submit" onclick="return confirm('{{ __('Do you want to delete this user?') }}')"  class="btn btn-danger">{{__('Törlés')}}</button>
+                                    <button type="submit" onclick="return confirm('{{ __('Biztosan törli ezt a kurzust?') }}')"  class="btn btn-danger">{{__('Törlés')}}</button>
                                     
                                 </form>
                             </td>
