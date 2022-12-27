@@ -37,7 +37,7 @@
                         <th scope="col">{{__('Kód')}}</th>
                         <th scope="col">{{__('Megnevezés')}}</th>
                         <th scope="col">{{__('Kategória')}}</th>
-                        <th scope="col">{{__('Létrehozó')}}</th>
+                        <th scope="col">{{__('Tulajdonos')}}</th>
                         <th scope="col">{{__('Létrehozva')}}</th>
                         <th scope="col">{{__('Módosítva')}}</th>
                         <th scope="col">{{__('Művelet')}}</th>
