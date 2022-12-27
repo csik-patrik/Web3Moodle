@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Teacher;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Teacher\CourseStoreRequest;
 use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\User;
@@ -36,12 +37,15 @@ class CourseController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Requests\Teacher\CourseStoreRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CourseStoreRequest $request)
     {
-        //
+        Course::create($request->all());
+
+        return redirect()->route('courses.index')
+                        ->with('success', __('Kurzus létrehozása sikeres!'));
     }
 
     /**
