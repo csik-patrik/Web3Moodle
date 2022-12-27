@@ -15,7 +15,7 @@ class Course extends Model
         'category_id',
         'owner_id'
     ];
-    
+
     public function user()
     {
         return $this->belongsTo(User::class, 'owner_id');

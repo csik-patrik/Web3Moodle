@@ -80,20 +80,19 @@ class UserController extends Controller
      */
     public function update(UserUpdateRequest $request)
     {
-        if($request->validated()){
+        if ($request->validated()) {
             $affected = DB::table('users')
               ->where('id', $request->id)
               ->update(['name' => $request->name,
                         'email' => $request->email,
                         'role_id' => $request->role_id
                        ]);
-            
+
             return redirect()->route('admin.users.index')
                         ->with('success', __('Felhasználó adatainak frissítése sikeres!'));
         }
         return redirect()->route('admin.users.index')
                         ->with('failed', __('Felhasználó adatainak frissítése sikertelen!'));
-
     }
 
     /**

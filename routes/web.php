@@ -40,5 +40,4 @@ Route::group([
 
     // User maintenance route.
     Route::resource('users', UserController::class);
-
 });

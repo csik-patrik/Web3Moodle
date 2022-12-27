@@ -90,6 +90,5 @@ class CourseController extends Controller
 
         return redirect()->route('courses.index')
                         ->with('success', __('Kurzus törlése sikeres!'));
-
     }
 }

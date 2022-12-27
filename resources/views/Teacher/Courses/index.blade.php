@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('title')
-{{ __('Kurzusok') }}
+    {{ __('Kurzusok') }}
 @endsection
 
 @section('content')
