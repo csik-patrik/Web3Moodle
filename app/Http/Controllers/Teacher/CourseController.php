@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Teacher;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Teacher\CourseStoreRequest;
+use App\Http\Requests\Teacher\CourseUpdateRequest;
 use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\CourseCategory;
@@ -79,14 +80,16 @@ class CourseController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Http\Requests\Teacher\CourseUpdateRequest $request
+     * @param  \App\Models\Course $course
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CourseUpdateRequest $request, Course $course)
     {
-        //
+        $course -> update($request->all());
+
+        return redirect()->route('courses.index')
+                        ->with('success', __('Kurzus módosítása sikeres!'));
     }
 
     /**
