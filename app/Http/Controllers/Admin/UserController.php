@@ -74,25 +74,16 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request  $request 
+     * @param \App\Models\User $user
      * @return \Illuminate\Http\Response
      */
-    public function update(UserUpdateRequest $request)
+    public function update(UserUpdateRequest $request, User $user)
     {
-        if ($request->validated()) {
-            $affected = DB::table('users')
-              ->where('id', $request->id)
-              ->update(['name' => $request->name,
-                        'email' => $request->email,
-                        'role_id' => $request->role_id
-                       ]);
+        $user->update($request->all());
 
-            return redirect()->route('admin.users.index')
-                        ->with('success', __('Felhasználó adatainak frissítése sikeres!'));
-        }
         return redirect()->route('admin.users.index')
-                        ->with('failed', __('Felhasználó adatainak frissítése sikertelen!'));
+                        ->with('success', __('Felhasználó adatainak frissítése sikeres!'));
     }
 
     /**
