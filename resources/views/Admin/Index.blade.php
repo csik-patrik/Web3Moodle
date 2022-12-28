@@ -28,7 +28,7 @@
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">{{ __('Kurzusok') }}</h5>
                         <p class="card-text">{{__('Kurzus létrehozása, meglévő kurzusok adatainak módosítása. Kurzusok törlése')}}</p>
-                        <a href="{{ route('courses.index')}}" class="btn btn-danger mt-auto">{{__('Megnyitás')}}</a>
+                        <a href="{{ route('admin.courses.index')}}" class="btn btn-danger mt-auto">{{__('Megnyitás')}}</a>
                     </div>
                 </div>
             </div>

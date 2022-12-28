@@ -25,7 +25,7 @@
     @endif
     <div class="row justify-content-center pb-3">
         <div class="class-lg-6">
-            <a class="btn bg-danger text-white" href="{{ route('courses.create') }}"> {{__('Kurzus létrehozása')}}</a>
+            <a class="btn bg-danger text-white" href="{{ route('admin.courses.create') }}"> {{__('Kurzus létrehozása')}}</a>
         </div>
     </div>
     <div class="row justify-content-center">
@@ -54,12 +54,12 @@
                             <td>{{ $course->created_at }}</td>
                             <td>{{ $course->updated_at }}</td>
                             <td>
-                                <form action="{{ route('courses.destroy', $course) }}" method="POST">
+                                <form action="{{ route('admin.courses.destroy', $course) }}" method="POST">
 
                                     @csrf
                                     @method('DELETE')
                                     
-                                    <a class="btn btn-warning" href="{{ route('courses.edit', $course) }}">{{__('Módosítás')}}</a>
+                                    <a class="btn btn-warning" href="{{ route('admin.courses.edit', $course) }}">{{__('Módosítás')}}</a>
                     
                                     <button type="submit" onclick="return confirm('{{ __('Biztosan törli ezt a kurzust?') }}')"  class="btn btn-danger">{{__('Törlés')}}</button>
                                     

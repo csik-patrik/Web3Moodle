@@ -88,7 +88,7 @@ class CourseController extends Controller
     {
         $course -> update($request->all());
 
-        return redirect()->route('courses.index')
+        return redirect()->route('admin.courses.index')
                         ->with('success', __('Kurzus módosítása sikeres!'));
     }
 
@@ -102,7 +102,7 @@ class CourseController extends Controller
     {
         Course::where('id', $id)->delete();
 
-        return redirect()->route('courses.index')
+        return redirect()->route('admin.courses.index')
                         ->with('success', __('Kurzus törlése sikeres!'));
     }
 }

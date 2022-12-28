@@ -11,7 +11,7 @@
                 <h1 class="display-4 d-flex justify-content-center">{{ __('Kurzus módosítása') }}</h1>
             </div>
         </div>
-        <form action="{{ route('courses.update', $course) }}" method="POST">
+        <form action="{{ route('admin.courses.update', $course) }}" method="POST">
             @csrf
             @method('PUT')
             <input type="hidden" value="{{$course->id}}" name="id">

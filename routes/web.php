@@ -46,10 +46,7 @@ Route::group([
     'as' => 'admin.',
     'middleware' => ['auth', 'is_teacher_or_admin'],
 ], function () {
-    // Admin main view.
-    Route::view('/index', 'Admin.index')->name('index');
 
-    // User maintenance route.
-    Route::resource('users', UserController::class);
-
+    // Courses
+    Route::resource('courses', CourseController::class);
 });

@@ -11,7 +11,7 @@
                 <h1 class="display-4 d-flex justify-content-center">{{ __('Kurzus létrehozása') }}</h1>
             </div>
         </div>
-        <form action="{{ route('courses.store') }}" method="POST">
+        <form action="{{ route('admin.courses.store') }}" method="POST">
             @csrf
             <div class="form-group">
                 <div class="row p-2">
