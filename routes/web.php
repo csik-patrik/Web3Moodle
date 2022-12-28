@@ -28,8 +28,6 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::resource('courses', CourseController::class);
-
 Route::group([
     'prefix' => 'admin',
     'as' => 'admin.',
@@ -40,4 +38,18 @@ Route::group([
 
     // User maintenance route.
     Route::resource('users', UserController::class);
+
+});
+
+Route::group([
+    'prefix' => 'admin',
+    'as' => 'admin.',
+    'middleware' => ['auth', 'is_teacher_or_admin'],
+], function () {
+    // Admin main view.
+    Route::view('/index', 'Admin.index')->name('index');
+
+    // User maintenance route.
+    Route::resource('users', UserController::class);
+
 });
