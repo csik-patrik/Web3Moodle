@@ -68,9 +68,13 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Course $course)
     {
-        //
+        $owners = User::where('role_id', 2)->get();
+
+        $categories = CourseCategory::orderBy('name')->get();
+
+        return View('Teacher.Courses.edit', compact('owners', 'course', 'categories'));
     }
 
     /**
