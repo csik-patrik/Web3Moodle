@@ -14,9 +14,11 @@
                 <a class="nav-link" href="{{route('admin.index')}}">{{ __('Karbantartás') }}</a>
               </li>
             @endcan
-            <li class="nav-item">
-              <a class="nav-link" href="#">link</a>
-            </li>
+            @can('is_student')
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('admin.index')}}">{{ __('Kurzusaim') }}</a>
+              </li>
+            @endcan
           </ul>
           <form class="form-inline my-2 my-lg-0">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
