@@ -89,12 +89,12 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\User $user;
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy(User $user)
     {
-        User::where('id', $request->user)->delete();
+        $user->delete();
 
         return redirect()->route('admin.users.index', app()->getLocale())
                         ->with('success', __('Felhasználó törlése sikeres!'));

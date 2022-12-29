@@ -52,12 +52,12 @@
                             <td>{{ $user->created_at }}</td>
                             <td>{{ $user->updated_at }}</td>
                             <td>
-                                <form action="{{ route('admin.users.destroy', ['language'=>app()->getLocale(), 'user'=>$user]) }}" method="POST">
+                                <form action="{{ route('admin.users.destroy', $user) }}" method="POST">
 
                                     @csrf
                                     @method('DELETE')
                                     
-                                    <a class="btn btn-warning" href="{{ route('admin.users.edit', ['language'=>app()->getLocale(), 'user'=>$user]) }}">{{__('Módosítás')}}</a>
+                                    <a class="btn btn-warning" href="{{ route('admin.users.edit', $user) }}">{{__('Módosítás')}}</a>
                     
                                     <button type="submit" onclick="return confirm('{{ __('Do you want to delete this user?') }}')"  class="btn btn-danger">{{__('Törlés')}}</button>
                                     
