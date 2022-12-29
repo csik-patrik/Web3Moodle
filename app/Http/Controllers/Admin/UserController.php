@@ -50,7 +50,7 @@ class UserController extends Controller
 
             User::create($request->all());
 
-            return redirect()->route('admin.users.index', app()->getLocale())
+            return redirect()->route('admin.users.index')
                         ->with('success', __('Felhasználó hozzáadása sikeres!'));
         }
         abort(403);
@@ -96,7 +96,7 @@ class UserController extends Controller
     {
         $user->delete();
 
-        return redirect()->route('admin.users.index', app()->getLocale())
+        return redirect()->route('admin.users.index')
                         ->with('success', __('Felhasználó törlése sikeres!'));
     }
 }

@@ -16,7 +16,7 @@
             @endcan
             @can('is_student')
               <li class="nav-item">
-                <a class="nav-link" href="{{route('admin.index')}}">{{ __('Kurzusaim') }}</a>
+                <a class="nav-link" href="{{route('course-members.index')}}">{{ __('Kurzusaim') }}</a>
               </li>
             @endcan
           </ul>
