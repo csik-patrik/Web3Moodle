@@ -48,7 +48,7 @@ class CourseController extends Controller
     {
         Course::create($request->all());
 
-        return redirect()->route('courses.index')
+        return redirect()->route('admin.courses.index')
                         ->with('success', __('Kurzus létrehozása sikeres!'));
     }
 
@@ -95,12 +95,12 @@ class CourseController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Course $course
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Course $course)
     {
-        Course::where('id', $id)->delete();
+        $course->delete();
 
         return redirect()->route('admin.courses.index')
                         ->with('success', __('Kurzus törlése sikeres!'));
