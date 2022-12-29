@@ -39,7 +39,7 @@
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">{{ __('Aktivitás') }}</h5>
                         <p class="card-text">{{__('Az oldalon történt változások megtekintése.')}}</p>
-                        <a href="#" class="btn btn-danger mt-auto">{{__('Megnyitás')}}</a>
+                        <a href="{{ route('admin.activity.index')}}" class="btn btn-danger mt-auto">{{__('Megnyitás')}}</a>
                     </div>
                 </div>
             </div>
