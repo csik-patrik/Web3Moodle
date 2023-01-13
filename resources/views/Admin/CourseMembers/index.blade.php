@@ -43,8 +43,8 @@
                 <tbody>
                     @foreach ($courseMembers as $courseMember)
                         <tr>
-                            <td>{{ $courseMember->course_id}}</td>
-                            <td>{{ $courseMember->user_id }}</td>
+                            <td>{{ $courseMember->course[0]->name}}</td>
+                            <td>{{ $courseMember->user[0]->name }}</td>
                             <td>{{ $courseMember->created_at }}</td>
                             <td>{{ $courseMember->updated_at }}</td>
                             <td>

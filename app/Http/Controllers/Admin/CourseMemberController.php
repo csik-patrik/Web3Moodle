@@ -82,7 +82,7 @@ class CourseMemberController extends Controller
      * @param  CourseMember $courseMember
      * @return \Illuminate\Http\Response
      */
-    public function destroy($courseMember)
+    public function destroy(CourseMember $courseMember)
     {
         $courseMember->delete();
 

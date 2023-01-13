@@ -31,7 +31,7 @@ class Course extends Model
 
     public function courseMember()
     {
-        return $this->belongsToMany(User::class, 'course_members', 'course_id', 'user_id');
+        return $this->belongsToMany(User::class, 'course_members', 'id', 'user_id');
     }
 
     public function getActivitylogOptions(): LogOptions

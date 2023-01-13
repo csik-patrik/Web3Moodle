@@ -19,18 +19,18 @@ class CourseMember extends Model
 
     public function user()
     {
-        return $this->belongsToMany(User::class, 'id');
+        return $this->hasMany(User::class, 'id', 'user_id');
     }
 
     public function course()
     {
-        return $this->belongsToMany(Course::class, 'id');
+        return $this->hasMany(Course::class, 'id', 'course_id');
     }
 
     public function getActivitylogOptions(): LogOptions
     {
         return LogOptions::defaults()
         ->setDescriptionForEvent(fn(string $eventName) => "This model has been {$eventName}")
-        ->useLogName('Course');
+        ->useLogName('Course member');
     }
 }
