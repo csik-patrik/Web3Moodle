@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\CourseMemberStoreRequest;
 use Illuminate\Http\Request;
 use App\Models\CourseMember;
+use App\Models\User;
+use App\Models\Course;
 
 class CourseMemberController extends Controller
 {
@@ -27,29 +30,25 @@ class CourseMemberController extends Controller
      */
     public function create()
     {
-        //
+        $students = User::where('role_id', 1)->orderBy('name')->get();
+
+        $courses = Course::orderBy('name')->get();
+
+        return View('Admin.CourseMembers.create', compact('students', 'courses'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Requests\CourseMemberStoreRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CourseMemberStoreRequest $request)
     {
-        //
-    }
+        CourseMember::create($request->all());
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        return redirect()->route('admin.course-members.index')
+                        ->with('success', __('Kurzus hozzárendelés sikeres!'));
     }
 
     /**
@@ -60,7 +59,9 @@ class CourseMemberController extends Controller
      */
     public function edit($id)
     {
-        //
+        $courseMembers = CourseMember::where('id', $id)->first();
+
+        return View('Admin.CourseMembers.edit', compact('courseMembers'));
     }
 
     /**
@@ -78,11 +79,14 @@ class CourseMemberController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  CourseMember $courseMember
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($courseMember)
     {
-        //
+        $courseMember->delete();
+
+        return redirect()->route('admin.course-members.index')
+                        ->with('success', __('A kurzus hozzárendelés sikeresen törölve!'));
     }
 }

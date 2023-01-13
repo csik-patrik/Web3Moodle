@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Teacher;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Teacher\CourseStoreRequest;
 use App\Http\Requests\Teacher\CourseUpdateRequest;
-use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\CourseCategory;
 use App\Models\User;
@@ -50,17 +49,6 @@ class CourseController extends Controller
 
         return redirect()->route('admin.courses.index')
                         ->with('success', __('Kurzus létrehozása sikeres!'));
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**

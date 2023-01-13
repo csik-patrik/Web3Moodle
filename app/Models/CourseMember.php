@@ -17,6 +17,16 @@ class CourseMember extends Model
         'user_id',
     ];
 
+    public function user()
+    {
+        return $this->belongsToMany(User::class, 'id');
+    }
+
+    public function course()
+    {
+        return $this->belongsToMany(Course::class, 'id');
+    }
+
     public function getActivitylogOptions(): LogOptions
     {
         return LogOptions::defaults()

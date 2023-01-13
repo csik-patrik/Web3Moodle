@@ -5,7 +5,7 @@ namespace App\Http\Requests\Admin;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
 
-class UserStoreRequest extends FormRequest
+class CourseMemberStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,10 +25,8 @@ class UserStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'email' => ['required', 'unique:users'],
-            'role_id' => 'required',
-            'password' => 'required',
+            'course_id' => 'required',
+            'user_id' => 'required',
         ];
     }
 }
