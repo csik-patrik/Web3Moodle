@@ -25,9 +25,9 @@ class UserUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required'],
-            'email' => ['required'],
-            'role_id' => 'required',
+            'name' => 'required|max:255',
+            'email' => 'required|email:rfc,dns|max:255',
+            'role_id' => 'required|exists:roles,id',
         ];
     }
 }
