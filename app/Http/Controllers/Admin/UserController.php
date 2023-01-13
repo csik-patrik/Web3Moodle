@@ -9,7 +9,6 @@ use App\Models\Role;
 use Illuminate\Support\Facades\Hash;
 use App\http\Requests\Admin\UserStoreRequest;
 use App\Http\Requests\Admin\UserUpdateRequest;
-use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
