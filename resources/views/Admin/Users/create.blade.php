@@ -57,6 +57,9 @@
                                 <option value="{{$role->id}}">{{$role->name}}</option>
                             @endforeach
                         </select>
+                        @if($errors->has('role_id'))
+                            <label class="form-label text-danger" for="role_id">{{__('Hibás beviteli érték!')}}</label>
+                        @endif
                     </div>
                 </div>
                 <div class="row p-2">

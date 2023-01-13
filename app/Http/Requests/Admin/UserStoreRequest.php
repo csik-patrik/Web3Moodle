@@ -25,10 +25,10 @@ class UserStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'email' => ['required', 'unique:users'],
-            'role_id' => 'required',
-            'password' => 'required',
+            'name' => 'required|max:255',
+            'email' => 'required|unique:users|max:255',
+            'role_id' => 'required|exists:roles,id|max:255',
+            'password' => 'required|max:255',
         ];
     }
 }
