@@ -3,7 +3,7 @@
 @section('title') {{ __('Karbantartás') }} @endsection
 
 @section('content')
-<div class="container p-3">
+<div class="container-fluid p-3">
     <div class="row">
         <div class="col-lg-12 margin-tb text-center p-2">
             <h1 class="display-4 d-flex justify-content-center">{{ __('Karbantartás') }}</h1>
@@ -11,7 +11,7 @@
     </div>
     <div class="row m-3 p-1 pb-4">
         <div class="card-deck">
-            <div class="col-lg-4 col-md-3 col-md-6 col-sm-12">
+            <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="card h-100">
                     <img class="card-img-top mt-3" height="150" src="{{ url('..\images\user.svg') }}" alt="{{ __('Felhasználók') }}">
                     <div class="card-body d-flex flex-column">
@@ -22,7 +22,7 @@
                 </div>
             </div>
             
-            <div class="col-lg-4 col-md-3 col-md-6 col-sm-12">
+            <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="card h-100">
                     <img class="card-img-top mt-3" height="150" src="{{ url('..\images\book.svg') }}" alt="{{ __('Kurzusok') }}">
                     <div class="card-body d-flex flex-column">
@@ -33,7 +33,18 @@
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-3 col-md-6 col-sm-12">
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card h-100">
+                    <img class="card-img-top mt-3" height="150" src="{{ url('..\images\studies.svg') }}" alt="{{ __('Kurzustagok kezelése') }}">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">{{ __('Kurzustagok kezelése') }}</h5>
+                        <p class="card-text">{{__('Kurzustagok kezelése. Felhasználók kurzushoz rendelése, eltávolítása.')}}</p>
+                        <a href="{{ route('admin.course-members.index')}}" class="btn btn-danger mt-auto">{{__('Megnyitás')}}</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="card h-100">
                     <img class="card-img-top mt-3" height="150" src="{{ url('..\images\activity.svg') }}" alt="{{ __('Aktivitás') }}">
                     <div class="card-body d-flex flex-column">

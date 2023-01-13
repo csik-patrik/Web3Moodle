@@ -1,10 +1,11 @@
 <?php
 
+use App\Http\Controllers\Admin\CourseMemberController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Teacher\CourseController;
-use App\Http\Controllers\Student\CourseMemberController;
+//use App\Http\Controllers\Student\CourseMemberController;
 use App\Http\Controllers\Admin\LoggerController;
 
 /*
@@ -41,11 +42,17 @@ Route::group([
     // User maintenance route.
     Route::resource('users', UserController::class);
 
+    //Course members
+    Route::resource('course-members', CourseMemberController::class);
+
+    //Logs
     Route::get('/activity', [LoggerController::class, 'index'])->name('activity.index');
+
+
 
 });
 
-Route::resource('course-members', CourseMemberController::class);
+//Route::resource('course-members', CourseMemberController::class);
 
 Route::group([
     'prefix' => 'admin',
