@@ -30,7 +30,7 @@ class CourseMember extends Model
     public function getActivitylogOptions(): LogOptions
     {
         return LogOptions::defaults()
-        ->setDescriptionForEvent(fn(string $eventName) => "This model has been {$eventName}")
+        ->setDescriptionForEvent(fn (string $eventName) => "This model has been {$eventName}")
         ->useLogName('Course member');
     }
 }

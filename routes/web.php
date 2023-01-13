@@ -47,9 +47,6 @@ Route::group([
 
     //Logs
     Route::get('/activity', [LoggerController::class, 'index'])->name('activity.index');
-
-
-
 });
 
 //Route::resource('course-members', CourseMemberController::class);
@@ -59,7 +56,6 @@ Route::group([
     'as' => 'admin.',
     'middleware' => ['auth', 'is_teacher_or_admin'],
 ], function () {
-
     // Courses
     Route::resource('courses', CourseController::class);
 });

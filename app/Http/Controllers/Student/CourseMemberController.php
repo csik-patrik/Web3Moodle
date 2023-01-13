@@ -17,7 +17,7 @@ class CourseMemberController extends Controller
     public function index()
     {
         $courses = DB::table('course_members')->where('user_id', Auth::id())->get();
-        
+
         return view('Student.Courses.index', compact('courses'));
     }
 

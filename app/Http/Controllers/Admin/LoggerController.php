@@ -14,8 +14,8 @@ class LoggerController extends Controller
      */
     public function index()
     {
-        $activities = DB::table('activity_log')->orderBy('created_at','desc')->get();
-        
+        $activities = DB::table('activity_log')->orderBy('created_at', 'desc')->get();
+
         return view('Admin.Activity.index', compact('activities'));
     }
 }
