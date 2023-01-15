@@ -4,8 +4,7 @@ use App\Http\Controllers\Admin\CourseMemberController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Teacher\CourseController;
-//use App\Http\Controllers\Student\CourseMemberController;
+use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\LoggerController;
 
 /*
@@ -39,23 +38,15 @@ Route::group([
     // Admin main view.
     Route::view('/index', 'Admin.index')->name('index');
 
-    // User maintenance route.
+    // Users resource route.
     Route::resource('users', UserController::class);
 
-    //Course members
+    // Courses resource route.
+    Route::resource('courses', CourseController::class);
+
+    //Course members resource route.
     Route::resource('course-members', CourseMemberController::class);
 
     //Logs
     Route::get('/activity', [LoggerController::class, 'index'])->name('activity.index');
-});
-
-//Route::resource('course-members', CourseMemberController::class);
-
-Route::group([
-    'prefix' => 'admin',
-    'as' => 'admin.',
-    'middleware' => ['auth', 'is_teacher_or_admin'],
-], function () {
-    // Courses
-    Route::resource('courses', CourseController::class);
 });
