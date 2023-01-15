@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Teacher;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Gate;
 
 class CourseStoreRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class CourseStoreRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return Gate::allows('is_admin');
     }
 
     /**
@@ -24,10 +25,10 @@ class CourseStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required'],
-            'code' => ['required', 'unique:courses'],
-            'category_id' => ['required'],
-            'owner_id' => 'required',
+            'name' => 'required|max:255',
+            'code' => 'required|unique:courses|max:255',
+            'category_id' => 'required|exists:course_categories,id',
+            'owner_id' => 'required|exists:users,id',
         ];
     }
 }

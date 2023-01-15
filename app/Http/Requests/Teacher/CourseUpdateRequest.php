@@ -24,10 +24,10 @@ class CourseUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required'],
-            'code' => ['required'],
-            'category_id' => ['required'],
-            'owner_id' => 'required',
+            'name' => 'required|max:255',
+            'code' => 'required|unique:courses|max:255',
+            'category_id' => 'required|exists:course_categories,id',
+            'owner_id' => 'required|exists:users,id',
         ];
     }
 }

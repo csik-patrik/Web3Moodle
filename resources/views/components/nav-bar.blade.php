@@ -25,10 +25,7 @@
                 @guest
                     <li class="nav-item active">
                         <a class="btn btn-dark nav-link mr-1" href="{{ route('login') }}">{{ __('Bejelentkezés')}}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">{{ __('Regisztráció') }}</a>
-                    </li>    
+                    </li>  
                 @endguest
                 @auth
                 <li class="nav-item d-flex justify-content-end">
