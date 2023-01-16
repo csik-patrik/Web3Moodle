@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\CourseMember;
+use Illuminate\Support\Facades\Auth;
 
 class CourseMemberController extends Controller
 {
@@ -14,7 +16,9 @@ class CourseMemberController extends Controller
      */
     public function index()
     {
-        //
+        $courseMembers = CourseMember::where('user_id', Auth::user()->id)->paginate(10);
+
+        return view('Student.CourseMembers.index', compact('courseMembers'));
     }
 
     /**
