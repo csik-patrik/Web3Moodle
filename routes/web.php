@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\CourseMemberController;
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CourseController;
@@ -22,14 +20,9 @@ Route::get('/', function () {
     return view('home');
 })->name('/');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
 require __DIR__.'/auth.php';
 
+// Admin group
 Route::group([
     'prefix' => 'admin',
     'as' => 'admin.',
@@ -45,8 +38,18 @@ Route::group([
     Route::resource('courses', CourseController::class);
 
     //Course members resource route.
-    Route::resource('course-members', CourseMemberController::class);
+    Route::resource('course-members', App\Http\Controllers\Admin\CourseMemberController::class);
 
     //Logs
     Route::get('/activity', [LoggerController::class, 'index'])->name('activity.index');
+});
+
+// Admin group
+Route::group([
+    'prefix' => 'student',
+    'as' => 'student.',
+    'middleware' => ['auth', 'is_student'],
+], function () {
+    //Course members resource route.
+    Route::resource('course-members', App\Http\Controllers\Student\CourseMemberController::class);
 });

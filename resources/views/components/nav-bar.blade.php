@@ -9,14 +9,14 @@
             <li class="nav-item active">
               <a class="nav-link" href="{{route('/')}}">{{ __('Kezdőlap') }}<span class="sr-only">(current)</span></a>
             </li>
+            @can('is_student')
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('student.course-members.index')}}">{{ __('Kurzusaim') }}</a>
+              </li>
+            @endcan
             @can('is_admin')
               <li class="nav-item">
                 <a class="nav-link" href="{{route('admin.index')}}">{{ __('Karbantartás') }}</a>
-              </li>
-            @endcan
-            @can('is_student')
-              <li class="nav-item">
-                <a class="nav-link" href="{{route('course-members.index')}}">{{ __('Kurzusaim') }}</a>
               </li>
             @endcan
           </ul>
