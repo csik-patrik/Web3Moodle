@@ -44,7 +44,7 @@ Route::group([
     Route::get('/activity', [LoggerController::class, 'index'])->name('activity.index');
 });
 
-// Admin group
+// Student group
 Route::group([
     'prefix' => 'student',
     'as' => 'student.',
