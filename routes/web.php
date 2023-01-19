@@ -37,10 +37,10 @@ Route::group([
     // Courses resource route.
     Route::resource('courses', CourseController::class);
 
-    //Course members resource route.
+    // Course members resource route.
     Route::resource('course-members', App\Http\Controllers\Admin\CourseMemberController::class);
 
-    //Logs
+    // Logs
     Route::get('/activity', [LoggerController::class, 'index'])->name('activity.index');
 });
 
@@ -50,6 +50,16 @@ Route::group([
     'as' => 'student.',
     'middleware' => ['auth', 'is_student'],
 ], function () {
-    //Course members resource route.
+    // Course members resource route.
     Route::resource('course-members', App\Http\Controllers\Student\CourseMemberController::class);
+});
+
+// User profile group
+Route::group([
+    'prefix' => 'user',
+    'as' => 'user.',
+    'middleware' => 'auth'
+], function () {
+    // User profile route
+    Route::view('/index', 'auth.user-profile')->name('index');
 });

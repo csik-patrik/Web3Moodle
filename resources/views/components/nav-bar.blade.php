@@ -32,7 +32,7 @@
                   <img class="w-50" src="https://ui-avatars.com/api/?name={{ urlencode(auth()->user()->name) }}&rounded=true&background=eda828&color=ffffff">
                 <li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">{{Auth::user()->name}}</a>
+                  <a class="nav-link" href="{{route('user.index')}}">{{Auth::user()->name}}</a>
                 <li>
                 <li class="nav-item">
                   <form method="POST" action="{{route('logout')}}">
