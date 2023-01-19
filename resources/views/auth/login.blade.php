@@ -4,8 +4,11 @@
             <a href="/">
                 <img class="w-20 h-20 fill-current text-gray-500" src="{{ url('..\images\school-svgrepo-com.svg') }}" alt="Logo">
             </a>
+            
         </x-slot>
 
+        <p class="h2 text-center">{{__('Bejelentkezés')}}</p>
+        
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
 
