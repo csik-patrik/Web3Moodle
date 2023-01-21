@@ -24,6 +24,9 @@
                                 <option value="{{$course->id}}">{{$course->name}}</option>
                             @endforeach
                         </select>
+                        @error('course_id')
+                            <label class="form-label text-danger" for="owner_id">{{ $message }}</label>
+                        @enderror
                     </div>
                 </div>
                 <div class="row p-2">
@@ -36,11 +39,14 @@
                                 <option value="{{$student->id}}">{{$student->name}}</option>
                             @endforeach
                         </select>
+                        @error('user_id')
+                            <label class="form-label text-danger" for="owner_id">{{ $message }}</label>
+                        @enderror
                     </div>
                 </div>
                 <div class="row p-2">
                     <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-                        <button type="submit" class="btn btn-success">{{__('Létrehozás')}}</button>
+                        <button type="submit" class="btn btn-success">{{__('Hozzárendelés')}}</button>
                     </div>
                 </div>
             </div>

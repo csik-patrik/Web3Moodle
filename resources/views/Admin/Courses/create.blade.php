@@ -20,9 +20,9 @@
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <input type="text" value="{{ old('code') }}" name="code" class="form-control {{ $errors->has('code')? 'is-invalid' : ' '}}" placeholder="{{__('Kurzus kód')}}">
-                        @if($errors->has('code'))
-                            <label class="form-label text-danger" for="code">{{__('Kurzus kód megadása kötelező')}}</label>
-                        @endif
+                        @error('code')
+                            <label class="form-label text-danger" for="code">{{ $message }}</label>
+                        @enderror
                     </div>
                 </div>
                 <div class="row p-2">
@@ -31,9 +31,9 @@
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <input type="text" value="{{ old('name') }}" name="name" class="form-control {{ $errors->has('name')? 'is-invalid' : ' '}}" placeholder="{{__('Kurzus megnevezése')}}">
-                        @if($errors->has('name'))
-                            <label class="form-label text-danger" for="name">{{__('Kurzus megnevezésének megadása kötelező')}}</label>
-                        @endif
+                        @error('name')
+                            <label class="form-label text-danger" for="name">{{ $message }}</label>
+                        @enderror
                     </div>
                 </div>
                 <div class="row p-2">
@@ -46,6 +46,9 @@
                                 <option value="{{$category->id}}">{{$category->name}}</option>
                             @endforeach
                         </select>
+                        @error('category_id')
+                            <label class="form-label text-danger" for="category_id">{{ $message }}</label>
+                        @enderror
                     </div>
                 </div>
                 <div class="row p-2">
@@ -58,6 +61,9 @@
                                 <option value="{{$owner->id}}">{{$owner->name}}</option>
                             @endforeach
                         </select>
+                        @error('owner_id')
+                            <label class="form-label text-danger" for="owner_id">{{ $message }}</label>
+                        @enderror
                     </div>
                 </div>
                 <div class="row p-2">
