@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="jumbotron">
-                <h1 class="display-4">{{__('Üdvözlom a Moodle rendszerben!')}}</h1>
+                <h1 class="display-4">{{__('Üdvözlöm a Moodle rendszerben!')}}</h1>
                 <p class="lead">{{__('Ez a project a webfejlesztői portfólióm része.')}}</p>
                 <p class="lead">{{__('Célja, hogy megvalósítsak egy kezdetleges moodle rendszert PHP Laravel keretrendszer segítségével.')}}</p>
                 <p class="lead">{{__('Ezen a projecten keresztül szeretném bemutatni a Laravelben és VUE.JS-ben megszerzett tudásom.')}}</p>
