@@ -44,6 +44,16 @@ Route::group([
     Route::get('/activity', [LoggerController::class, 'index'])->name('activity.index');
 });
 
+// Teacher group
+Route::group([
+    'prefix' => 'teacher',
+    'as' => 'teacher.',
+    'middleware' => ['auth', 'is_teacher'],
+], function () {
+    // Courses route.
+    Route::resource('courses', App\Http\Controllers\Teacher\CourseController::class);
+});
+
 // Student group
 Route::group([
     'prefix' => 'student',
