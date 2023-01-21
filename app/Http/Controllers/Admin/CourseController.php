@@ -68,13 +68,14 @@ class CourseController extends Controller
 
     /**
      * Update the specified resource in storage.
-     * @param  \App\Http\Requests\Teacher\CourseUpdateRequest $request
-     * @param  \App\Models\Course $course
+     *
+     * @param  \App\Http\Requests\Teacher\CourseUpdateRequest  $request
+     * @param  \App\Models\Course  $course
      * @return \Illuminate\Http\Response
      */
     public function update(CourseUpdateRequest $request, Course $course)
     {
-        $course -> update($request->all());
+        $course->update($request->all());
 
         return redirect()->route('admin.courses.index')
                         ->with('success', __('Kurzus módosítása sikeres!'));
@@ -83,7 +84,7 @@ class CourseController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Course $course
+     * @param  \App\Models\Course  $course
      * @return \Illuminate\Http\Response
      */
     public function destroy(Course $course)

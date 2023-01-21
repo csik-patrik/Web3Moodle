@@ -4,10 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CourseMemberStoreRequest;
-use Illuminate\Http\Request;
+use App\Models\Course;
 use App\Models\CourseMember;
 use App\Models\User;
-use App\Models\Course;
 
 class CourseMemberController extends Controller
 {
@@ -40,7 +39,7 @@ class CourseMemberController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Requests\CourseMemberStoreRequest $request
+     * @param  \Illuminate\Http\Requests\CourseMemberStoreRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(CourseMemberStoreRequest $request)
@@ -52,34 +51,9 @@ class CourseMemberController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $courseMembers = CourseMember::where('id', $id)->first();
-
-        return View('Admin.CourseMembers.edit', compact('courseMembers'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
      * Remove the specified resource from storage.
      *
-     * @param  CourseMember $courseMember
+     * @param  CourseMember  $courseMember
      * @return \Illuminate\Http\Response
      */
     public function destroy(CourseMember $courseMember)

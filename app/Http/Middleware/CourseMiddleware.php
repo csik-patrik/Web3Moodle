@@ -20,6 +20,7 @@ class CourseMiddleware
         if (Auth::user()->role_id >= 2) {
             return $next($request);
         }
+
         return $next($request);
     }
 }

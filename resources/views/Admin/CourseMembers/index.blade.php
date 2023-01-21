@@ -52,8 +52,6 @@
 
                                     @csrf
                                     @method('DELETE')
-                                    
-                                    <a class="btn btn-warning" href="{{ route('admin.course-members.edit', $courseMember) }}">{{__('Módosítás')}}</a>
                     
                                     <button type="submit" onclick="return confirm('{{ __('Biztosan törli a hozzárendelést?') }}')"  class="btn btn-danger">{{__('Törlés')}}</button>
                                     

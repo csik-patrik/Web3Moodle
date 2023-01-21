@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\Role;
+use Illuminate\Database\Seeder;
 
 class RoleSeeder extends Seeder
 {
@@ -15,18 +15,18 @@ class RoleSeeder extends Seeder
     public function run()
     {
         Role::firstOrCreate(
-            [ 'name' => 'student' ],
-            [ 'name' => 'student' ]
+            ['name' => 'student'],
+            ['name' => 'student']
         );
 
         Role::firstOrCreate(
-            [ 'name' => 'teacher' ],
-            [ 'name' => 'teacher' ]
+            ['name' => 'teacher'],
+            ['name' => 'teacher']
         );
 
         Role::firstOrCreate(
-            [ 'name' => 'admin' ],
-            [ 'name' => 'admin' ]
+            ['name' => 'admin'],
+            ['name' => 'admin']
         );
     }
 }

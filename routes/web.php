@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\LoggerController;
+use App\Http\Controllers\Admin\UserController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,7 +58,7 @@ Route::group([
 Route::group([
     'prefix' => 'user',
     'as' => 'user.',
-    'middleware' => 'auth'
+    'middleware' => 'auth',
 ], function () {
     // User profile route
     Route::view('/index', 'auth.user-profile')->name('index');
