@@ -44,7 +44,7 @@
                             <td>{{ $courseMember->course[0]->name}}</td>
                             <td>{{ $courseMember->created_at }}</td>
                             <td>
-                                <form action="#" method="POST">
+                                <form action="{{ route('student.course-members.destroy', $courseMember) }}" method="POST">
 
                                     @csrf
                                     @method('DELETE')

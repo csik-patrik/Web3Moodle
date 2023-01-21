@@ -79,11 +79,14 @@ class CourseMemberController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  CourseMember $courseMember
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(CourseMember $courseMember)
     {
-        //
+        $courseMember->delete();
+
+        return redirect()->route('student.course-members.index')
+                        ->with('success', __('A kurzus hozzárendelés sikeresen törölve!'));
     }
 }
