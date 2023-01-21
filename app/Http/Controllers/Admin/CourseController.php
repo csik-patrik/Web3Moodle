@@ -20,7 +20,7 @@ class CourseController extends Controller
     {
         $courses = Course::orderBy('id', 'asc')->paginate(10);
 
-        return view('Teacher.Courses.index', compact('courses'));
+        return view('Admin.Courses.index', compact('courses'));
     }
 
     /**
@@ -34,7 +34,7 @@ class CourseController extends Controller
 
         $categories = CourseCategory::orderBy('name')->get();
 
-        return View('Teacher.Courses.create', compact('owners', 'categories'));
+        return View('Admin.Courses.create', compact('owners', 'categories'));
     }
 
     /**
@@ -63,7 +63,7 @@ class CourseController extends Controller
 
         $categories = CourseCategory::orderBy('name')->get();
 
-        return View('Teacher.Courses.edit', compact('owners', 'course', 'categories'));
+        return View('Admin.Courses.edit', compact('owners', 'course', 'categories'));
     }
 
     /**
