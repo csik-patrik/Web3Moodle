@@ -28,39 +28,47 @@
             <a class="btn bg-danger text-white" href="#"> {{__('Kurzus jelentkezés')}}</a>
         </div>
     </div>
-    <div class="row justify-content-center">
-        <div class="col-lg-12">
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">{{__('Kurzus')}}</th>
-                        <th scope="col">{{__('Hozzáadva')}}</th>
-                        <th scope="col">{{__('Művelet')}}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($courseMembers as $courseMember)
+    @if(count($courseMembers) != 0)
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <table class="table">
+                    <thead class="thead-dark">
                         <tr>
-                            <td>{{ $courseMember->course[0]->name}}</td>
-                            <td>{{ $courseMember->created_at }}</td>
-                            <td>
-                                <form action="{{ route('student.course-members.destroy', $courseMember) }}" method="POST">
-
-                                    @csrf
-                                    @method('DELETE')
-                    
-                                    <button type="submit" onclick="return confirm('{{ __('Biztosan törli a hozzárendelést?') }}')"  class="btn btn-danger">{{__('Leadás')}}</button>
-                                    
-                                </form>
-                            </td>
+                            <th scope="col">{{__('Kurzus')}}</th>
+                            <th scope="col">{{__('Hozzáadva')}}</th>
+                            <th scope="col">{{__('Művelet')}}</th>
                         </tr>
-                    @endforeach
-                    <tr>
-                        <td> {{ $courseMembers->links()}} </td>
-                    </tr>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach ($courseMembers as $courseMember)
+                            <tr>
+                                <td>{{ $courseMember->course[0]->name}}</td>
+                                <td>{{ $courseMember->created_at }}</td>
+                                <td>
+                                    <form action="{{ route('student.course-members.destroy', $courseMember) }}" method="POST">
+
+                                        @csrf
+                                        @method('DELETE')
+                        
+                                        <button type="submit" onclick="return confirm('{{ __('Biztosan törli a hozzárendelést?') }}')"  class="btn btn-danger">{{__('Leadás')}}</button>
+                                        
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                        <tr>
+                            <td> {{ $courseMembers->links()}} </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
+    @else
+        <div class="row align-items-center">
+            <div class="col-lg-12 margin-tb text-center p-2">
+                <h1 class="display-4 d-flex justify-content-center">{{ __('Önnek nincs felvett kurzusa!') }}</h1>
+            </div>
+        </div>
+    @endif
 </div>
 @endsection
